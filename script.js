@@ -141,12 +141,11 @@ function applyTransform() {
 // });
 
 document.getElementById('download').addEventListener('click',async ()=>{
-    await html2canvas(document.getElementById("container"),{
-      scale:0.5
-    }).then( async canvas => {
-      let link = document.createElement('a');
-      link.download = 'div-image.png';
-      link.href = canvas.toDataURL();
+    await html2canvas(document.getElementById("container")).then( async canvas => {
+      const image = canvas.toDataURL('image/png');  // Convert canvas to image URL (PNG format)
+      const link = document.createElement('a');
+      link.href = image;
+      link.download = 'div-image.png';  // File name
       link.click();
     });
   })
