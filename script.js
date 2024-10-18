@@ -142,8 +142,9 @@ function applyTransform() {
 
 document.getElementById('download').addEventListener('click',async ()=>{
     await html2canvas(document.getElementById("container")).then( async canvas => {
-      const link = document.createElement('a');
       const image = canvas.toDataURL('image/png'); 
+      const link = document.createElement('a');
+     
       link.href = image;
       link.download = 'div-image.png';  // File name
       link.click();
