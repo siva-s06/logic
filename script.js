@@ -140,27 +140,13 @@ function applyTransform() {
 //       })
 // });
 
-// document.getElementById('download').addEventListener('click',async ()=>{
-//     await html2canvas(document.getElementById("container")).then( async canvas => {
-//       const link = document.createElement('a');
-//       const image = canvas.toDataURL('image/png'); 
-//       link.href = image;
-//       link.download = 'div-image.png';  // File name
-//       link.click();
-//     });
-//   })
-document.getElementById('download').addEventListener('click', async () => {
-  // Capture the content of the container element using html2canvas
-  const canvas = await html2canvas(document.getElementById("container"));
-  
-  // Convert the canvas content to a PNG image
-  const image = canvas.toDataURL('image/png');
-  
-  // Create a temporary anchor element to download the image
-  const link = document.createElement('a');
-  link.href = image;
-  link.download = 'div-image.png'; // Name the file to be downloaded
-  
-  // Programmatically click the anchor element to trigger the download
-  link.click();
-});
+document.getElementById('download').addEventListener('click',async ()=>{
+    await html2canvas(document.getElementById("container")).then( async canvas => {
+      const link = document.createElement('a');
+      const image = canvas.toDataURL('image/png'); 
+      link.href = image;
+      link.download = 'div-image.png';  // File name
+      link.click();
+    });
+  })
+
