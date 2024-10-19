@@ -144,8 +144,7 @@ document.getElementById('download').addEventListener('click',async ()=>{
     await html2canvas(document.getElementById("container")).then( async canvas => {
       const image = canvas.toDataURL('image/png'); 
       const link = document.createElement('a');
-     
-      link.href = image;
+      link.href = DataURL;
       link.download = 'div-image.png';  // File name
       link.click();
     });
