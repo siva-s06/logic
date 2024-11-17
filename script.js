@@ -140,13 +140,21 @@ function applyTransform() {
 //       })
 // });
 
-document.getElementById('download').addEventListener('click',async ()=>{
-    await html2canvas(document.getElementById("container")).then( async canvas => {
-      const image = canvas.toDataURL('image/png'); 
-      const link = document.createElement('a');
-      link.href = DataURL;
-      link.download = 'downloaded-image.png';  // File name
-      link.click();
+// document.getElementById('download').addEventListener('click',async ()=>{
+//     await html2canvas(document.getElementById("container")).then( async canvas => {
+//       const image = canvas.toDataURL('image/png'); 
+//       const link = document.createElement('a');
+//       link.href = DataURL;
+//       link.download = 'downloaded-image.png';  // File name
+//       link.click();
+document.getElementById("download").addEventListener("click", function () {
+    const container = document.getElementById("container"); // The label container
+
+    html2canvas(container, { backgroundColor: null }).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "label.png"; // File name for download
+        link.href = canvas.toDataURL("image/png");
+        link.click(); // Trigger download
     });
   })
 
