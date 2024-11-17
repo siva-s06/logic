@@ -154,7 +154,7 @@ document.getElementById("download").addEventListener("click", function () {
         link.download = "label.png"; // File name for download
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
-        link.click(); 
+        link.onclick(); 
     });
   })
 
