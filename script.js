@@ -151,10 +151,10 @@ document.getElementById("download").addEventListener("click", function () {
     const container = document.getElementById("container"); // The label container
 
     html2canvas(container, { backgroundColor: null }).then((canvas) => {
-        const link = document.createElement("a");
         link.download = "label.png"; // File name for download
+        const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
-        link.click(); // Trigger download
+        link.click(); 
     });
   })
 
